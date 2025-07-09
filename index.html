@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regedit Mobile - Free Fire Hacks</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis CSS para Cores - AGORA EM AZUL! */
+        :root {
+            --cor-neon-principal: #00e0ff; /* Ciano/Azul claro vibrante */
+            --cor-neon-secundaria: #ff00ff; /* Magenta/Rosa para contraste */
+            --cor-neon-terciaria: #00c0ff; /* Azul um pouco mais escuro para fundos/bordas */
+            --cor-fundo-principal: #0d0d0d; /* Preto muito escuro */
+            --cor-fundo-secundario: rgba(18, 18, 18, 0.7); /* Preto semi-transparente */
+            --cor-texto-claro: #ccffff; /* Azul muito claro para textos secundários */
+            --cor-texto-destaque: #ff00ff; /* Rosa para destaque (preço) */
+        }
+
+        /* Estilos Globais */
+        body {
+            font-family: 'VT323', monospace;
+            background-color: var(--cor-fundo-principal);
+            color: var(--cor-neon-principal); /* Cor padrão de texto azul neon */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animação de fundo (matriz de código) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(0, 224, 255, 0.05), /* Usando a cor neon azul */
+                rgba(0, 224, 255, 0.05) 1px,
+                transparent 1px,
+                transparent 20px
+            );
+            animation: matrix-rain 60s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes matrix-rain {
+            from { background-position: 0 0; }
+            to { background-position: 0 -2000px; }
+        }
+
+        /* Efeito de glitch no texto do título */
+        .glitch-text {
+            animation: glitch 1.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: none; transform: none; }
+            20% { text-shadow: 2px 0px var(--cor-neon-secundaria), -2px -2px var(--cor-neon-principal); transform: translate(0px, 0px); }
+            40% { text-shadow: 2px 2px var(--cor-neon-secundaria), -2px -2px var(--cor-neon-principal); transform: translate(0px, 0px); }
+            60% { text-shadow: 2px 0px var(--cor-neon-secundaria), -2px -2px var(--cor-neon-principal); transform: translate(0px, 0px); }
+            80% { text-shadow: -2px 2px var(--cor-neon-secundaria), 2px -2px var(--cor-neon-principal); transform: translate(0px, 0px); }
+            100% { text-shadow: none; transform: none; }
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 224, 255, 0.1); /* Um azul mais sutil e transparente */
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid var(--cor-neon-principal);
+            box-shadow: 0 0 15px var(--cor-neon-principal);
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            color: var(--cor-neon-principal);
+            text-shadow: 0 0 10px var(--cor-neon-principal), 0 0 20px var(--cor-neon-principal);
+            letter-spacing: 3px;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Produtos */
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .product {
+            background-color: var(--cor-fundo-secundario);
+            border-radius: 15px;
+            padding: 25px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 224, 255, 0.4); /* Sombra azul neon */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            border: 1px solid var(--cor-neon-terciaria);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Efeito de gradiente no hover do produto */
+        .product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,224,255,0.1), rgba(0,224,255,0)); /* Azul */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .product:hover::before {
+            opacity: 1;
+        }
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 224, 255, 0.7), 0 0 50px rgba(0, 224, 255, 0.3);
+        }
+        .product img {
+            width: 90%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid var(--cor-neon-principal);
+            box-shadow: 0 0 10px var(--cor-neon-principal);
+        }
+        .product h2 {
+            color: var(--cor-neon-principal); /* Azul neon para títulos de produto */
+            margin-top: 0;
+            font-size: 28px;
+            text-shadow: 0 0 8px var(--cor-neon-principal);
+        }
+        .product p {
+            color: var(--cor-texto-claro);
+            font-size: 18px;
+        }
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--cor-texto-destaque); /* Rosa neon para preço */
+            margin: 20px 0;
+            text-shadow: 0 0 10px var(--cor-texto-destaque);
+        }
+        .buy-btn {
+            background-color: var(--cor-neon-principal); /* Azul neon */
+            color: var(--cor-fundo-principal); /* Texto escuro para contraste */
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(0, 224, 255, 0.7);
+        }
+        .buy-btn:hover {
+            background-color: var(--cor-neon-terciaria); /* Azul um pouco mais escuro */
+            box-shadow: 0 0 25px rgba(0, 224, 255, 1);
+        }
+        .game-image {
+            width: 100%;
+            max-width: 700px;
+            margin: 40px auto;
+            display: block;
+            border-radius: 15px;
+            border: 3px solid var(--cor-neon-principal);
+            box-shadow: 0 0 25px var(--cor-neon-principal);
+        }
+        footer {
+            background-color: var(--cor-fundo-secundario);
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            border-top: 2px solid var(--cor-neon-principal);
+            box-shadow: 0 0 15px var(--cor-neon-principal);
+            color: var(--cor-texto-claro);
+            font-size: 16px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Modals */
+        .modal {
+            display: none; /* ESSENCIAL: Mantém o modal oculto por padrão no CSS */
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            backdrop-filter: blur(5px);
+            /* Estas propriedades de flexbox só terão efeito quando display for alterado para 'flex' pelo JS */
+            align-items: center; 
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            overflow-y: auto;
+            max-height: 90vh;
+            border: 2px solid var(--cor-neon-principal);
+            box-shadow: 0 0 25px rgba(0, 224, 255, 0.7);
+            position: relative;
+        }
+        .close {
+            color: var(--cor-neon-principal);
+            float: right;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        .close:hover {
+            color: var(--cor-neon-secundaria); /* Rosa neon ao passar o mouse */
+            text-shadow: 0 0 10px var(--cor-neon-secundaria);
+        }
+        .modal-content h2 {
+            color: var(--cor-neon-principal);
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--cor-neon-principal);
+        }
+        .modal-content p {
+            color: var(--cor-texto-claro);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .modal-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        .modal-content ul li {
+            color: var(--cor-texto-claro);
+            font-size: 17px;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+            text-align: left;
+        }
+        .modal-content ul li::before {
+            content: '>>';
+            color: var(--cor-neon-secundaria); /* Rosa neon para o ícone */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .file-display {
+            background-color: #0a0a0a;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            border: 1px dashed var(--cor-neon-terciaria);
+            box-shadow: inset 0 0 10px rgba(0, 224, 255, 0.3);
+            color: var(--cor-neon-principal);
+            font-size: 16px;
+        }
+        .file-display span {
+            color: var(--cor-neon-secundaria); /* Rosa neon para os ícones de pasta/arquivo */
+            font-weight: bold;
+        }
+        .file-display div {
+            margin-left: 20px;
+        }
+        .screenshot {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            border: 3px solid var(--cor-neon-principal);
+            box-shadow: 0 0 15px var(--cor-neon-principal);
+        }
+        .modal-content .buy-btn {
+            margin-top: 20px;
+            font-size: 22px;
+            padding: 15px 30px;
+        }
+        .modal-content p.small-text {
+            font-size: 14px;
+            color: var(--cor-texto-claro); /* Usando a variável de texto claro */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="glitch-text">REGEDIT MOBILE - FREE FIRE HACKS</h1>
+    </header>
+
+    <div class="container">
+        <img src="freefire-main.png" alt="Free Fire" class="game-image">
+
+        <div class="products">
+            <div class="product">
+                <img src="desertup.png" alt="Arranca Crânio">
+                <h2>Arranca Crânio 💀</h2>
+                <p>Regedit poderoso que permite eliminar inimigos com um único tiro na cabeça!</p>
+                <button class="buy-btn" onclick="openModal('arranca')">Ver Detalhes</button>
+            </div>
+
+            <div class="product">
+                <img src="umpder.png" alt="Gelo Infinito">
+                <h2>Gelo Infinito ❄️</h2>
+                <p>Nunca mais fique sem munição com este regedit de gelo infinito!</p>
+                <button class="buy-btn" onclick="openModal('gelo')">Ver Detalhes</button>
+            </div>
+
+            <div class="product">
+                <img src="codf.png" alt="Full OBB Hacker">
+                <h2>Full OBB Hacker 🔥</h2>
+                <p>Acesso completo aos arquivos OBB do jogo com vantagens exclusivas!</p>
+                <button class="buy-btn" onclick="openModal('obb')">Ver Detalhes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="arrancaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('arranca')">&times;</span>
+            <h2>Arranca Crânio 💀</h2>
+            
+            <img src="desertup.png" alt="Arranca Crânio" class="screenshot">
+            
+            <p><strong>Recursos:</strong></p>
+            <ul style="text-align: left;">
+                <li>Dano aumentado em 500% para tiros na cabeça</li>
+                <li>Sem recuo de arma</li>
+                <li>Compatível com todas as armas</li>
+                <li>Funciona em todas as versões do Free Fire</li>
+                <li>Atualizações gratuitas</li>
+            </ul>
+            
+            <div class="price">R$ 4,99</div>
+            
+            <div class="file-display">
+                <span>📁</span> arranca_cranio_regedit.zip
+                <div style="margin-left: 20px;">
+                    <span>📄</span> config.reg<br>
+                    <span>📄</span> readme.txt<br>
+                    <span>📁</span> assets/
+                </div>
+            </div>
+            
+            <button class="buy-btn" onclick="buyProduct()">COMPRAR AGORA</button>
+            <p class="small-text">
+                🔒 Liberação automática após confirmação do pagamento.
+            </p>
+        </div>
+    </div>
+
+    <div id="geloModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('gelo')">&times;</span>
+            <h2>Gelo Infinito ❄️</h2>
+            
+            <img src="umpder.png" alt="Gelo Infinito" class="screenshot">
+            
+            <p><strong>Recursos:</strong></p>
+            <ul style="text-align: left;">
+                <li>Munição infinita para todas as armas</li>
+                <li>Sem necessidade de recarregar</li>
+                <li>Não detectável pelo sistema anti-cheat</li>
+                <li>Funciona em todas as versões do Free Fire</li>
+                <li>Atualizações gratuitas</li>
+            </ul>
+            
+            <div class="price">R$ 4,99</div>
+            
+            <div class="file-display">
+                <span>📁</span> gelo_infinito_regedit.zip
+                <div style="margin-left: 20px;">
+                    <span>📄</span> ice_config.reg<br>
+                    <span>📄</span> instructions.txt<br>
+                    <span>📁</span> modules/
+                </div>
+            </div>
+            
+            <button class="buy-btn" onclick="buyProduct()">COMPRAR AGORA</button>
+            <p class="small-text">
+                🔒 Liberação automática após confirmação do pagamento.
+            </p>
+        </div>
+    </div>
+
+    <div id="obbModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('obb')">&times;</span>
+            <h2>Full OBB Hacker 🔥</h2>
+            
+            <img src="codf.png" alt="Full OBB Hacker" class="screenshot">
+            
+            <p><strong>Recursos:</strong></p>
+            <ul style="text-align: left;">
+                <li>Acesso completo aos arquivos OBB do jogo</li>
+                <li>Modificação de texturas e skins</li>
+                <li>Desbloqueio de todos os personagens</li>
+                <li>Vantagens exclusivas não disponíveis na loja</li>
+                <li>Atualizações gratuitas</li>
+            </ul>
+            
+            <div class="price">R$ 4,99</div>
+            
+            <div class="file-display">
+                <span>📁</span> full_obb_hacker.zip
+                <div style="margin-left: 20px;">
+                    <span>📄</span> main.obb<br>
+                    <span>📄</span> patch.obb<br>
+                    <span>📁</span> data/
+                    <div style="margin-left: 20px;">
+                        <span>📄</span> skins.bin<br>
+                        <span>📄</span> characters.dat
+                    </div>
+                </div>
+            </div>
+            
+            <button class="buy-btn" onclick="buyProduct()">COMPRAR AGORA</button>
+            <p class="small-text">
+                🔒 Liberação automática após confirmação do pagamento.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 Regedit Mobile - Todos os direitos reservados</p>
+        <p>Este site não é afiliado à Garena ou ao Free Fire</p>
+    </footer>
+
+    <script>
+        // *** NOVO CÓDIGO PARA GARANTIR QUE O MODAL NÃO ABRA AO CARREGAR ***
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ao carregar o DOM, garanta que todos os modais estejam ocultos.
+            // Isso sobrescreve qualquer comportamento indesejado de abertura.
+            const allModals = document.querySelectorAll('.modal');
+            allModals.forEach(modal => {
+                modal.style.display = 'none';
+                modal.classList.remove('show'); // Remova qualquer classe de transição se houver
+            });
+        });
+
+        function openModal(product) {
+            document.getElementById(product + 'Modal').style.display = 'flex';
+        }
+
+        function closeModal(product) {
+            document.getElementById(product + 'Modal').style.display = 'none';
+        }
+
+        function buyProduct() {
+            // LINK DE PAGAMENTO ATUALIZADO AQUI
+            window.location.href = 'https://bbpay.apps.bb.com.br/m/#/cm49eyJvcHIiOiJDQ0siLCJzb2xpY2l0YXRpb25OdW1iZXIiOiI0NjczODkxNyJ9';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (modal.style.display === 'flex') {
+                        const productId = modal.id.replace('Modal', '');
+                        closeModal(productId);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
